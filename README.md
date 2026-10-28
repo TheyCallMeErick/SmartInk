@@ -4,8 +4,6 @@ Plugin de escrita à mão com mesa digitalizadora para **Obsidian Desktop**, inc
 
 **Versão do código:** 0.27.0. **Versão mínima do Obsidian:** 1.5.0. **Status de validação:** testes automatizados headless aprovados; os testes reais com mesa digitalizadora e Obsidian continuam necessários.
 
-> **Importante sobre a origem deste repositório:** o ZIP original recebido continha o plugin já distribuído (`main.js`, `styles.css` e manifesto), **não** os arquivos do projeto-fonte original. Para tornar a aplicação editável e versionável, o bundle JavaScript foi **separado em módulos por responsabilidade**, preservando a ordem e o escopo do código. O build concatena esses módulos, sem dependências externas. Não se trata de uma recuperação do TypeScript, do projeto de bundling ou dos commits originais, que não estavam no pacote fornecido. Todos os módulos usados para gerar os artefatos estão aqui.
-
 ## Novidades da versão 0.27.0
 
 - Internacionalização: Automático, Português (Brasil) e English em Documento e configurações → Interface e gestos → Idioma. Mais de 800 mensagens no catálogo inglês; fallback em português para mensagens não catalogadas.
@@ -215,23 +213,6 @@ Smart Ink/meu-desenho.smartink
 ````
 
 Os documentos `.smartink` usam esquema **v8**. A leitura migra versões 1–7; o próximo salvamento grava v8. A 0.13.1 não lê v8. Preserve cópias anteriores se precisar voltar de versão.
-
-## Publicar no GitHub
-
-```bash
-git init
-git add .
-git commit -m "Smart Ink 0.14.0 source"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/smart-ink.git
-git push -u origin main
-```
-
-Crie primeiro um repositório vazio no GitHub. Substitua `SEU_USUARIO` pela sua conta. Para publicar uma versão, atualize **ambos** `package.json` e `manifest.json`, execute `npm run verify`, faça commit e crie uma tag `v0.14.0` (ou a próxima versão). Consulte [`docs/GIT_PUBLISH.md`](docs/GIT_PUBLISH.md).
-
-## Direitos de código
-
-Este pacote mantém [`THIRD-PARTY-NOTICES.txt`](THIRD-PARTY-NOTICES.txt) e isola o código de terceiros em `src/vendor/`. **Não foi identificada uma licença para o código original do plugin**, portanto `package.json` marca o projeto como `UNLICENSED`, em vez de atribuir licenças ou permissões não verificadas. Antes de publicar como open source, confirme a titularidade do código e adicione uma licença apropriada; preservar os avisos de terceiros não substitui essa etapa.
 
 ## Limitações
 

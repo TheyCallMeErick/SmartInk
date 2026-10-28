@@ -31,7 +31,7 @@ const root = path.resolve(__dirname, '..');
     await page.evaluate(() => {
       const { Ink, InkView, Brushes } = testApi;
       const plugin = {
-        settings: Brushes.settings({}),
+        settings: { ...Brushes.settings({}), uiLanguage: 'pt-BR' },
         savePreferences: async () => {},
         scheduleSessionSave: () => {},
         backup: async () => {},
@@ -60,8 +60,8 @@ const root = path.resolve(__dirname, '..');
       });
       await page.waitForTimeout(60);
       await page
-        .getByRole('navigation', { name: 'Categorias de configurações' })
-        .getByRole('button', { name: 'Atalhos e favoritos', exact: true })
+        .getByRole('navigation', { name: 'Preferências' })
+        .getByRole('button', { name: 'Atalhos e pincéis', exact: true })
         .click();
       const bounds = await page.locator('.si-flyout').boundingBox();
       assert.ok(
@@ -80,7 +80,8 @@ const root = path.resolve(__dirname, '..');
         layers.x >= -1 &&
           layers.y >= -1 &&
           layers.x + layers.width <= width + 1 &&
-          layers.y + layers.height <= 501
+          layers.y + layers.height <= 501,
+        `Layer sheet bounds at ${width}px: ${JSON.stringify(layers)}`
       );
       await page.evaluate(() => testView.setLayerDockOpen(false));
     }
