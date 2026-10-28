@@ -1,0 +1,29 @@
+name: Publish Smart Ink release
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Verify and package
+        run: npm run verify
+      - name: Confirm tag matches version
+        shell: bash
+        run: |
+          test "${GITHUB_REF_NAME}" = "v$(node -p 'require("./package.json").version')"
+      - name: Publish ZIP
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "${GITHUB_REF_NAME}" releases/smart-ink-*.zip --generate-notes

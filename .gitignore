@@ -1,0 +1,20 @@
+# Generated from src/ using `npm run build`
+/main.js
+/styles.css
+/releases/
+/node_modules/
+/coverage/
+/dist/
+/.cache/
+/.env
+/.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+*.log

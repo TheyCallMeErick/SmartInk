@@ -1,0 +1,48 @@
+.si-root .si-selection-buttons > button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-height: 36px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+.si-root .si-selection-buttons > button:hover {
+  background: var(--background-modifier-hover);
+}
+.si-root .si-selection-style-actions {
+  position: sticky;
+  bottom: 0;
+  background: var(--background-primary);
+  padding: 10px 0;
+  z-index: 1;
+  border-top: 1px solid var(--background-modifier-border);
+}
+.si-canvas-feedback {
+  position: absolute;
+  z-index: 14;
+  left: 12px;
+  top: 12px;
+  max-width: calc(100% - 24px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  box-shadow: 0 3px 12px #0002;
+  font-size: 12px;
+}
+.si-drop-marker {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+  max-width: 170px;
+  padding: 9px;
+  border: 2px dashed var(--interactive-accent);
+  border-radius: 8px;
+  color: var(--text-normal);
+  background: var(--background-primary);
+  font-size: 12px;
+}

@@ -1,0 +1,16 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
+const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+assert.equal(manifest.id, 'smart-ink');
+assert.equal(pkg.version, manifest.version);
+const main = fs.readFileSync(path.join(root, 'main.js'), 'utf8');
+assert.equal((main.match(/\/\* Smart Ink — quality-of-life layer\./g) || []).length, 1);
+assert.match(main, /module\.exports\s*=\s*SmartInkPlugin\s*;/);
+assert.ok(!main.includes('127.0.0.1:32187'));
+const fsCss = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+assert.ok(fsCss.includes('.si-layer-dock'));
+console.log('PASS: source integration, manifest and UI CSS sanity');

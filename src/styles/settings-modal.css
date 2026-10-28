@@ -1,0 +1,273 @@
+/* Compact brush cards; native theme colors and keyboard-visible focus. */
+.smart-ink .si-profile-row,
+.si-profile-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.si-profile-row .si-profile-card {
+  height: auto;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 9px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: normal;
+  text-align: center;
+  box-shadow: none;
+}
+.si-profile-card svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--interactive-accent);
+}
+.si-profile-row .si-profile-card:hover {
+  border-color: var(--interactive-accent);
+  background: var(--background-modifier-hover);
+}
+.si-settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 900;
+}
+.si-settings-shell {
+  position: absolute;
+  z-index: 901;
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.25);
+}
+.si-settings-sidebar {
+  flex: 0 0 210px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: auto;
+  padding: 18px 12px;
+  border-right: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+.si-settings-heading {
+  padding: 0 8px 12px;
+  font-size: 14px;
+}
+.si-settings-sidebar button {
+  display: block;
+  flex-shrink: 0;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.4;
+  height: auto;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-muted);
+}
+.si-settings-sidebar button:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+.si-settings-sidebar button[aria-current='page'] {
+  background: var(--background-primary);
+  border-color: var(--background-modifier-border);
+  color: var(--text-normal);
+  font-weight: 600;
+}
+.si-settings-sidebar .si-panel-copy {
+  margin-top: auto;
+  padding: 16px 8px 0;
+  font-size: 11px;
+}
+.si-settings-shell .si-settings-content {
+  position: static !important;
+  inset: auto !important;
+  flex: 1;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+  padding: 18px 22px;
+  overscroll-behavior: contain;
+}
+.si-settings-content .si-flyout-title {
+  position: sticky;
+  top: -18px;
+  z-index: 2;
+  background: var(--background-primary);
+  padding: 12px 0;
+  margin-top: -6px;
+  cursor: default;
+}
+.si-settings-content .si-settings-nav,
+.si-settings-content .si-nav-back {
+  display: none;
+}
+.si-settings-compact {
+  flex-direction: column;
+}
+.si-settings-compact .si-settings-sidebar {
+  flex: 0 0 auto;
+  max-height: 145px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px;
+  border-right: 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.si-settings-compact .si-settings-heading {
+  width: 100%;
+  padding: 0 4px 4px;
+}
+.si-settings-compact .si-settings-sidebar button {
+  font-size: 12px;
+  min-height: 32px;
+  padding: 6px 8px;
+}
+.si-settings-compact .si-settings-sidebar .si-panel-copy {
+  display: none;
+}
+.si-settings-compact .si-settings-content {
+  padding: 14px;
+  min-height: 0;
+  height: auto;
+}
+.si-flyout
+  :is(
+    input:not([type='range']):not([type='checkbox']):not([type='radio']):not([type='color']),
+    select,
+    textarea
+  ) {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font: inherit;
+  padding: 5px 8px;
+}
+.si-flyout input:is([type='checkbox'], [type='radio']) {
+  accent-color: var(--interactive-accent);
+  flex-shrink: 0;
+}
+.si-flyout :is(input[type='range'], input[type='color']) {
+  max-width: 100%;
+  accent-color: var(--interactive-accent);
+}
+.si-flyout input[type='file'] {
+  height: auto;
+  white-space: normal;
+}
+.si-flyout input::file-selector-button {
+  font: inherit;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 5px;
+  padding: 5px 8px;
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  margin-right: 8px;
+}
+.si-flyout button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.si-flyout .si-menu-action {
+  min-height: 34px;
+  height: auto;
+  white-space: normal;
+  line-height: 1.4;
+  border-radius: 7px;
+  padding: 7px 10px;
+}
+.si-settings-shell :is(button, input, select, textarea, summary):focus-visible,
+.si-profile-card:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+.si-settings-content .si-check-row {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .si-profile-card,
+  .si-settings-sidebar button {
+    transition:
+      background-color 0.12s,
+      border-color 0.12s;
+  }
+  .si-settings-shell {
+    animation: si-settings-appear 0.14s ease-out;
+  }
+  @keyframes si-settings-appear {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+.si-settings-content .si-preferences-links {
+  display: none;
+}
+.si-settings-content > button:not(.si-menu-action) {
+  margin: 4px 5px 4px 0;
+  min-height: 34px;
+  height: auto;
+  white-space: normal;
+  line-height: 1.4;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 7px;
+  padding: 7px 10px;
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  box-shadow: none;
+}
+.si-settings-content > button:hover {
+  background: var(--background-modifier-hover);
+}
+.si-settings-content > input:not([type='checkbox']):not([type='range']):not([type='color']) {
+  width: 100%;
+  margin: 8px 0;
+}
+.si-flyout [aria-invalid='true'] {
+  border-color: var(--text-error, #d14343) !important;
+}

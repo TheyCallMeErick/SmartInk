@@ -1,0 +1,638 @@
+/* Smart Ink 0.11 — lightweight, keyboard-accessible pen controls */
+.si-root {
+  --si-surface: var(--background-primary, #fff);
+  --si-edge: var(--background-modifier-border, #ddd);
+  --si-shadow: 0 14px 42px rgba(0, 0, 0, 0.17);
+}
+.si-root .si-radial-v2 {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 85;
+  transform: translate(-50%, -50%) scale(var(--si-radial-scale, 1));
+  transform-origin: center;
+  background: color-mix(in srgb, var(--si-surface) 96%, transparent);
+  border: 1px solid var(--si-edge);
+  box-shadow: var(--si-shadow);
+  backdrop-filter: blur(14px);
+  animation: si-radial-enter 0.17s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.si-root .si-radial-v2 .si-radial-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px;
+  min-width: 69px;
+  width: 76px;
+  height: 66px;
+  min-height: 66px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 16px;
+  color: var(--text-normal);
+  font-size: 10px;
+  line-height: 1.1;
+  transition:
+    background 0.14s ease,
+    transform 0.14s ease;
+  white-space: normal;
+  text-align: center;
+  touch-action: manipulation;
+}
+.si-root .si-radial-v2 .si-radial-item:hover,
+.si-root .si-radial-v2 .si-radial-item:focus-visible {
+  background: var(--background-modifier-hover);
+  transform: translate(-50%, -50%) scale(1.07);
+}
+.si-root .si-radial-v2 .si-radial-label {
+  font-weight: 500;
+  max-width: 72px;
+  overflow-wrap: normal;
+}
+.si-root .si-radial-v2 .si-radial-center {
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  min-height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--si-edge);
+  background: var(--background-secondary);
+  box-shadow: inset 0 0 0 2px var(--si-surface);
+  color: var(--text-normal);
+}
+.si-root .si-radial-v2 .si-radial-center:hover {
+  background: var(--background-modifier-hover);
+}
+.si-radial-caption {
+  position: absolute;
+  left: 102px;
+  top: 178px;
+  width: 96px;
+  font-size: 8px;
+  text-align: center;
+  letter-spacing: 0.11em;
+  pointer-events: none;
+  color: var(--text-muted);
+}
+.si-action-svg {
+  flex: none;
+  display: block;
+  stroke: currentColor;
+}
+@keyframes si-radial-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(calc(var(--si-radial-scale, 1) * 0.9));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(var(--si-radial-scale, 1));
+  }
+}
+.si-menu-section {
+  font-size: 11px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  color: var(--text-muted);
+  padding: 14px 3px 7px;
+  border-bottom: 1px solid var(--si-edge);
+  margin-bottom: 4px;
+}
+.si-menu-section:first-of-type {
+  padding-top: 2px;
+}
+.si-panel-section {
+  font-size: 13px;
+  font-weight: 650;
+  margin: 18px 0 9px;
+}
+.si-root .si-structured-action {
+  height: 36px;
+  min-height: 36px;
+  border-radius: 6px;
+}
+.si-root .si-menu-action {
+  border-radius: 6px;
+}
+.si-root .si-danger-action {
+  color: var(--text-error);
+}
+.si-layer-dock {
+  position: absolute;
+  bottom: 47px;
+  right: 15px;
+  z-index: 56;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.si-layer-dock[hidden] {
+  display: none;
+}
+.si-layer-dock > * {
+  pointer-events: auto;
+}
+.si-root .si-layer-toggle {
+  height: 42px;
+  min-width: 58px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--si-edge);
+  border-radius: 14px;
+  color: var(--text-normal);
+  background: var(--si-surface);
+  box-shadow: 0 3px 14px #00000016;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  touch-action: manipulation;
+}
+.si-root .si-layer-toggle:hover {
+  background: var(--background-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px #0000001e;
+}
+.si-layer-toggle[aria-expanded='true'] {
+  box-shadow: 0 5px 24px #00000024;
+}
+.si-layer-counter {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.si-layer-sheet {
+  order: -1;
+  width: min(302px, calc(100vw - 44px));
+  max-height: min(390px, calc(100dvh - 155px));
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--si-surface) 98%, transparent);
+  border: 1px solid var(--si-edge);
+  border-radius: 15px;
+  box-shadow: var(--si-shadow);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  animation: si-layer-rise 0.16s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.si-layer-sheet[hidden] {
+  display: none;
+}
+@keyframes si-layer-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.si-layer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 8px 15px;
+  gap: 9px;
+}
+.si-layer-heading strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+.si-layer-heading-actions,
+.si-layer-footer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.si-layer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 5px 8px;
+  scrollbar-width: thin;
+}
+.si-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 2px 3px;
+  min-height: 40px;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+.si-layer-item.is-active {
+  background: var(--background-secondary);
+  border-color: color-mix(in srgb, var(--si-accent) 35%, transparent);
+}
+.si-layer-item.is-hidden-layer .si-layer-name {
+  opacity: 0.5;
+}
+.si-root .si-layer-select {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+  padding: 4px 5px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
+  color: var(--text-normal);
+  font-size: 12px;
+  border-radius: 6px;
+}
+.si-layer-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+.si-layer-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--background-modifier-border);
+}
+.si-layer-item.is-active .si-layer-dot {
+  background: var(--si-accent);
+}
+.si-layer-item-count {
+  color: var(--text-faint);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.si-root .si-layer-item .si-compact-button {
+  width: 29px;
+  min-width: 29px;
+  height: 30px;
+}
+.si-root .si-compact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  gap: 4px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 0;
+  border-radius: 7px;
+  box-shadow: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.si-root .si-compact-button:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+.si-root .si-compact-button:disabled {
+  opacity: 0.3;
+}
+.si-layer-footer {
+  border-top: 1px solid var(--si-edge);
+  padding: 7px 10px 8px;
+  gap: 6px;
+}
+.si-layer-footer > span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.si-small-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 5px 0;
+}
+.si-small-field input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 34px;
+  border-radius: 7px;
+}
+.si-root .si-selection-actions {
+  display: flex;
+  align-items: center;
+  min-height: 41px;
+  gap: 9px;
+  padding: 5px 13px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.si-selection-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  min-width: 0;
+  max-width: 145px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: none;
+}
+.si-selection-buttons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.si-selection-buttons::-webkit-scrollbar {
+  display: none;
+}
+.si-root .si-selection-buttons .si-compact-button {
+  min-width: 35px;
+  width: 35px;
+  height: 32px;
+  color: var(--text-normal);
+  background: transparent;
+}
+.si-root .si-selection-buttons .si-compact-button:hover {
+  background: var(--background-modifier-hover);
+}
+.si-root .si-selection-buttons .si-compact-button:disabled {
+  color: var(--text-faint);
+}
+.si-root .si-selection-buttons .si-selection-overflow {
+  margin-left: 5px;
+  border-left: 1px solid var(--si-edge);
+  border-radius: 2px;
+}
+.si-root button:focus-visible,
+.si-root .si-layer-dock input:focus-visible {
+  outline: 2px solid var(--si-accent);
+  outline-offset: 2px;
+}
+.si-root.si-focus .si-layer-dock {
+  bottom: 12px;
+}
+.si-root[data-layout='left'] .si-layer-dock,
+.si-root[data-layout='right'] .si-layer-dock {
+  right: 12px;
+  bottom: 49px;
+}
+@media (max-width: 600px) {
+  .si-layer-dock {
+    right: 8px;
+    bottom: 42px;
+  }
+  .si-selection-count {
+    max-width: 60px;
+  }
+  .si-root .si-selection-actions {
+    padding: 5px 7px;
+    gap: 5px;
+  }
+  .si-layer-sheet {
+    width: min(286px, calc(100vw - 24px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .si-root .si-radial-v2,
+  .si-layer-sheet {
+    animation: none;
+  }
+  .si-root .si-radial-v2 .si-radial-item,
+  .si-root .si-layer-toggle,
+  .si-layer-item,
+  .si-root .si-compact-button {
+    transition: none;
+  }
+}
+/* Smart Ink 0.12 — curved radial zoom, separated precision controls and compact menus */
+.si-root .si-radial-v2 .si-radial-zoom {
+  position: absolute;
+  left: -8px;
+  top: 299px;
+  width: 316px;
+  height: 74px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  padding: 9px 4px 0;
+  box-sizing: border-box;
+  border-radius: 18px;
+  background: var(--si-surface);
+  border: 1px solid var(--si-edge);
+  box-shadow: 0 7px 18px #0000001a;
+}
+.si-root .si-radial-v2 .si-radial-zoom-step {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  min-width: 37px;
+  height: 38px;
+  min-height: 38px;
+  padding: 5px;
+  margin-top: 0;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  background: transparent;
+  color: var(--text-normal);
+  touch-action: manipulation;
+}
+.si-root .si-radial-v2 .si-radial-zoom-step:hover,
+.si-root .si-radial-v2 .si-radial-zoom-step:focus-visible {
+  background: var(--background-modifier-hover);
+  transform: none;
+}
+.si-radial-zoom-track {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 61px;
+  touch-action: none;
+  cursor: ew-resize;
+  border-radius: 12px;
+  outline-offset: 2px;
+}
+.si-radial-zoom-track svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 51px;
+  overflow: visible;
+  pointer-events: none;
+}
+.si-zoom-track,
+.si-zoom-progress {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.si-zoom-track {
+  stroke: var(--background-modifier-border);
+}
+.si-zoom-progress {
+  stroke: var(--interactive-accent, var(--si-accent));
+}
+.si-zoom-thumb {
+  fill: var(--si-surface);
+  stroke: var(--interactive-accent, var(--si-accent));
+  stroke-width: 3;
+  filter: drop-shadow(0 1px 2px #0003);
+}
+.si-radial-zoom-value {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38px;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 16px;
+  text-align: center;
+  color: var(--text-normal);
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+.si-radial-zoom-track:focus-visible {
+  outline: 2px solid var(--si-accent);
+}
+.si-snap-subsettings {
+  margin-left: 3px;
+  padding-left: 11px;
+  border-left: 2px solid var(--si-edge);
+  transition: opacity 0.15s ease;
+}
+.si-snap-subsettings.si-settings-disabled {
+  opacity: 0.46;
+}
+.si-snap-subsettings .si-check-row {
+  margin: 9px 0;
+}
+.si-root .si-flyout[aria-label='Documento e configurações'] .si-menu-section {
+  padding-top: 12px;
+}
+.si-root .si-flyout[aria-label='Precisão e encaixes'] .si-menu-section {
+  padding-top: 12px;
+}
+.si-root .si-flyout[aria-label='Personalizar menu radial'] .si-check-row {
+  margin: 5px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .si-snap-subsettings {
+    transition: none;
+  }
+}
+.si-radial-editor-section {
+  margin: 10px 0;
+  border: 1px solid var(--si-edge);
+  border-radius: 9px;
+  padding: 1px 10px 7px;
+}
+.si-radial-editor-section summary {
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+  list-style-position: inside;
+}
+.si-radial-editor-section[open] summary {
+  border-bottom: 1px solid var(--si-edge);
+  margin-bottom: 5px;
+}
+.si-radial-editor-section .si-check-row {
+  margin: 7px 0;
+}
+.si-root .si-nav-back {
+  color: var(--text-muted);
+  border-top: 1px solid var(--si-edge);
+  margin-top: 8px;
+}
+.si-menu-accordion {
+  margin-top: 9px;
+  border: 1px solid var(--si-edge);
+  border-radius: 10px;
+  padding: 0 8px 5px;
+}
+.si-menu-accordion summary {
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 11px 4px;
+  list-style-position: inside;
+  line-height: 1.4;
+}
+.si-menu-accordion[open] summary {
+  border-bottom: 1px solid var(--si-edge);
+  margin-bottom: 4px;
+}
+.si-menu-accordion .si-menu-action {
+  min-height: 34px;
+}
+/* 0.13 — selection reuses the brush palette and keeps edits explicitly reversible. */
+.si-style-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.si-root .si-style-choices button {
+  font-size: 12px;
+  min-width: 0;
+  padding: 7px 2px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 7px;
+  background: var(--background-secondary);
+  box-shadow: none;
+}
+.si-root .si-style-choices button:hover {
+  border-color: var(--interactive-accent);
+  background: var(--background-modifier-hover);
+}
+.si-selection-style-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 16px 0 6px;
+}
+.si-root .si-selection-style-actions button {
+  min-height: 38px;
+}
+.si-root .si-selection-style-actions .si-apply-style {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.si-root .si-selection-style-actions .si-apply-style:hover {
+  background: var(--interactive-accent-hover);
+}

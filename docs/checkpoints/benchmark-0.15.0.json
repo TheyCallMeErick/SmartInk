@@ -1,0 +1,27 @@
+{
+  "kind": "synthetic headless; no canvas/GPU or physical pen latency",
+  "objects": 20000,
+  "runs": 80,
+  "pointerDown": {
+    "medianMs": 0.1127,
+    "p95Ms": 0.288
+  },
+  "firstMove": {
+    "medianMs": 0.0143,
+    "p95Ms": 0.0628
+  },
+  "finish": {
+    "medianMs": 4.8453,
+    "p95Ms": 10.6837
+  },
+  "prolongedMoves": {
+    "medianMs": 0.0055,
+    "p95Ms": 0.0158
+  },
+  "spatialQuery": {
+    "medianMs": 0.0319,
+    "p95Ms": 0.118
+  },
+  "clonesDuringHandlers": 0,
+  "backupsDuringHandlers": 0
+}

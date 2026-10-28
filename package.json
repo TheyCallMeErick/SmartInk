@@ -1,0 +1,32 @@
+{
+  "name": "obsidian-smart-ink",
+  "private": true,
+  "version": "0.27.0",
+  "description": "Plugin de escrita com mesa digitalizadora, geometria, camadas e gestos para Obsidian",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/watch.mjs",
+    "check": "node scripts/check.mjs",
+    "format": "prettier --write \"src/core/**/*.{js,css}\" \"src/features/**/*.{js,css}\" \"src/plugin/**/*.{js,css}\" \"src/styles/**/*.css\" \"scripts/**/*.{js,mjs,cjs}\" \"tests/**/*.{js,mjs,cjs}\"",
+    "format:check": "prettier --check \"src/core/**/*.{js,css}\" \"src/features/**/*.{js,css}\" \"src/plugin/**/*.{js,css}\" \"src/styles/**/*.css\" \"scripts/**/*.{js,mjs,cjs}\" \"tests/**/*.{js,mjs,cjs}\"",
+    "test": "node scripts/test.mjs",
+    "package": "node scripts/package.mjs",
+    "verify": "npm run format:check && npm run build && npm run check && npm test && npm run package",
+    "test:browser": "node scripts/browser-smoke.cjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "tests",
+    "manifest.json",
+    "THIRD-PARTY-NOTICES.txt"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
+}

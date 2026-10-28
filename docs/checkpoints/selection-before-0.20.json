@@ -1,0 +1,10 @@
+{
+  "objects": 500,
+  "points": 64000,
+  "frames": 30,
+  "eventsPerFrame": 4,
+  "medianMs": 124.22,
+  "p95Ms": 146.23,
+  "geometryCopiesDuringDrag": 60000,
+  "scope": "drag processing only; rendering and overlay disabled; excludes GPU/physical input"
+}

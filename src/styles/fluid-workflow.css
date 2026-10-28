@@ -1,0 +1,51 @@
+.si-inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 7px;
+  flex: none;
+  pointer-events: none;
+}
+.si-root .si-flyout,
+.si-root .si-shape-popover {
+  animation: si-panel-appear 120ms ease-out;
+}
+.si-root button {
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out,
+    color 100ms ease-out;
+}
+.si-root button:active:not(:disabled) {
+  filter: brightness(0.94);
+}
+.si-root .si-canvas-feedback {
+  animation: si-feedback-appear 140ms ease-out;
+}
+@keyframes si-panel-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes si-feedback-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .si-root .si-flyout,
+  .si-root .si-shape-popover,
+  .si-root .si-canvas-feedback {
+    animation: none;
+  }
+  .si-root button {
+    transition: none;
+  }
+}

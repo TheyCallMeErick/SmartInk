@@ -1,0 +1,319 @@
+{
+  "panelsOpened": 51,
+  "buttonInstances": 456,
+  "keyboardOnly": 16,
+  "results": [
+    {
+      "method": "build",
+      "buttons": 24,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openBrushPanel",
+      "buttons": 42,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openEraserPanel",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPagePanel",
+      "buttons": 21,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openSelectionStyle",
+      "buttons": 41,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPerformance",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openSampleComparison",
+      "buttons": 4,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openCalibration",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openOrganize",
+      "buttons": 13,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openLayers",
+      "buttons": 16,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openTemplates",
+      "buttons": 7,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openObjectOptions",
+      "buttons": 6,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openRadial",
+      "buttons": 11,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openTextEditor",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openAssets",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openVisualRecovery",
+      "buttons": 1,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openRegions",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openDiagram",
+      "buttons": 13,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openInterface",
+      "buttons": 8,
+      "keyboardOnly": 1,
+      "unbound": []
+    },
+    {
+      "method": "openPrecision",
+      "buttons": 7,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openConnectorOptions",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openLayerDelete",
+      "buttons": 4,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openImageOptions",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openWorkflow",
+      "buttons": 26,
+      "keyboardOnly": 15,
+      "unbound": []
+    },
+    {
+      "method": "openExportOptions",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openRecovery",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openDraftingPanel",
+      "buttons": 8,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openNavigation",
+      "buttons": 4,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openSelectionControls",
+      "buttons": 9,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openProperties",
+      "buttons": 8,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openDeviceProfiles",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openSessionHistory",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPageStyles",
+      "buttons": 4,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openRadialSettings",
+      "buttons": 8,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openLayerRowOptions",
+      "buttons": 10,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openSelectionActions",
+      "buttons": 15,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPresetLibrary",
+      "buttons": 10,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openNotebook",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPdfImport",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openShapeLibrary",
+      "buttons": 31,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openShapeParameters",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openInkEditing",
+      "buttons": 5,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openTidyWriting",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openDiagramRecognition",
+      "notOpened": true
+    },
+    {
+      "method": "openVectorTools",
+      "buttons": 12,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openVectorRepeat",
+      "buttons": 3,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openVectorNodes",
+      "buttons": 8,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openGapDiagnosis",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openRegionEditing",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openOverlapPicker",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openDigitAssist",
+      "buttons": 15,
+      "keyboardOnly": 0,
+      "unbound": []
+    },
+    {
+      "method": "openPrimitiveInspector",
+      "buttons": 2,
+      "keyboardOnly": 0,
+      "unbound": []
+    }
+  ],
+  "errors": [],
+  "unbound": []
+}

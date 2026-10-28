@@ -1,0 +1,9 @@
+{
+  "id": "smart-ink",
+  "name": "Smart Ink",
+  "version": "0.27.0",
+  "minAppVersion": "1.5.0",
+  "description": "Escrita com mesa digitalizadora, formas, pincéis ajustáveis, réguas, camadas e suavização offline.",
+  "author": "Erick Azevedo",
+  "isDesktopOnly": true
+}
